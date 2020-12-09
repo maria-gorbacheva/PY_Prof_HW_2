@@ -1,8 +1,10 @@
 # Написать генератор, который принимает путь к файлу. При каждой итерации возвращает md5 хеш каждой строки файла.
 import hashlib
+import os
 
 def my_generator(file: str):
-    with open(file, 'r', encoding='utf-8') as f:
+    file_path = os.path.join(os.getcwd(), file)
+    with open(file_path, 'r', encoding='utf-8') as f:
         while True:
             data = f.readline()
             if not data:
